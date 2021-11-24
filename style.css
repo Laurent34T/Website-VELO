@@ -1,0 +1,359 @@
+/****** Fonts **********************************************/
+@font-face {
+    font-family: "Proxima-Nova-Regular";
+    src: url("./Fonts/Proxima-Nova-Regular.otf");
+}
+@font-face {
+    font-family: "Proxima-Nova-Light";
+    src: url("./Fonts/Proxima-Nova-Light.otf");
+}
+@font-face {
+    font-family: "Proxima-Nova-SemiBold";
+    src: url("./Fonts/Proxima-Nova-SemiBold.otf");
+}
+
+
+/********** GENERALE ***************************************/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Proxima-Nova-Regular";
+}
+
+a:link {
+    text-decoration: none;
+    color: gray;
+    opacity: 0.3;
+}
+
+li {
+    display: inline;
+    list-style: none;
+}
+ul li a:hover {
+    color: rgb(0, 162, 255);
+    opacity: 1;
+}
+
+/* Input *************************************/
+form {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+}
+input{
+    padding-bottom: 0.5rem;
+    border: none;
+}
+input:focus {
+    outline: none;
+}
+input::placeholder {
+    color: lightgray;
+}
+
+
+.statut {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+}
+
+/***************** Theme *********************/
+/** Color *******************/
+.c_light_gray{
+    color: gray;
+}
+.white {
+    color: white;
+}
+
+/** Background color *******************/
+.red {
+    background-color: #e74c3c;
+}
+.green {
+    background-color: #bedb39;
+}
+.gray {
+    background-color: #eeeeee;
+}
+
+
+/**** Variables ********************************/
+body {
+    --background_blanc: white;
+    --header: 12vh;
+    --H_place: calc(2.2* var(--header));
+}
+
+body {
+    display: grid;
+    grid-template-rows: var(--header) var(--H_place) 1fr;
+    grid-template-columns: 12vh 1fr 15%;
+    grid-template-areas: 
+        "navigation header header"
+        "navigation H_place H_place"
+        "navigation container_destination aside";
+    height: 100vh;
+    margin: 0;
+}
+
+
+
+
+/* Les codes couleurs pour les backgrounds : #2bbfbd => logo #121920 => navbar #bedb39 => vert  #e74c3c => voyant rouge*/
+
+/* BODY ...................................................*
+/* HEADER....................................*/
+header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: var(--background_blanc);
+}
+header form {
+    width: 30%;
+}
+/* Account*/
+.account {
+    display: flex;
+    align-items: center;
+}
+.account img {
+    height: 2rem;
+}
+.account img, p {
+    margin-right: 1rem;
+    color: gray;
+}
+.account i {
+    color: lightgray;
+    font-size: 1rem;
+
+}
+
+
+/*NAVIGATION ...............................................................*/
+.navigation {
+    grid-area: navigation;
+    width: 100%;
+    height: 100vh;
+    background-color: #121920;
+}
+/* Logo*/
+#logo {
+    width: 12vh;
+    height: 12vh;
+    padding: 1rem;
+    padding-top: 1.8rem;
+    background-color: #2bbfbd;
+}
+#logo img {
+    width: 100%;
+}
+/* Menu*/
+#P_bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - 12vh);
+    text-align: center;
+    font-size: 1.2rem;
+    padding-bottom: 1.2rem;
+}
+#P_bar ul li {
+    display: block;
+    margin-top: 3rem;
+}
+
+
+/* MAIN .....................................................................*/
+/* Header places .............................*/
+.H_place {
+    display: flex;
+    justify-content: space-between;
+    grid-area: H_place;
+    width: 100%;
+    background-image: url(./images/background-header.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.H_place p:first-child {
+    align-self: flex-end;
+    margin-left: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.8rem;
+    font-family: "Proxima-Nova-Light";
+}
+.H_place p:first-child i {
+    margin-right: 0.5rem;
+    font-size: 1rem;
+}
+
+.content {
+    display: flex;
+    justify-content: flex-end;
+    width: 20%;
+    text-align: center;
+}
+.time, .price {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    height: 100%;
+    padding: 0.5rem;
+    padding-top: 2rem;
+}
+.time {
+    background-color: rgba(251, 255, 0, 0.3);
+}
+.time i, .price i {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.time p, .price p {
+    margin: 0;
+    font-size: 0.7rem;
+    line-height: 1.5rem;
+}
+.price {
+    background-color: rgba(0, 253, 198, 0.3);
+}
+.content strong {
+    font-family: "Proxima-Nova-SemiBold";
+}
+
+
+
+/* Cards container ..........................*/
+.container_destination {
+    grid-area: container_destination;
+    position: relative;
+    overflow: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    width: 100%;
+    background-color: #eeeeee;
+}
+
+.S_bar {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    width: calc(100% - 20rem);
+    height: 10vh;
+    padding: 1.5rem 4rem 1rem 4rem;
+    font-size: 14pt;
+    z-index: 10;
+}
+.S_bar ul:first-child li {
+    margin-right: 2rem;
+}
+.S_bar ul:last-child li {
+    margin-left: 2rem;
+}
+
+
+/* Container card.............................*/
+.container_card {
+    padding: 0 4rem;
+    position: absolute;
+    top: 12vh;
+    width: 100%;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+.one {
+    margin-bottom: 3rem;
+}
+.card {
+    position: relative;
+    width: 30%;
+    background-color: white;
+}
+
+/* First content */
+.card div:first-child img:first-child{
+    width: 100%;
+}
+.card div:first-child img:last-child {
+    position: absolute;
+    top: 10px; right: 10px;
+    width: 15%;
+}
+/* Second content */
+.card .second {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.7rem;
+}
+.card .second div h2 {
+    font-size: 0.8rem;
+}
+.card .second div p {
+    color: gray;
+    font-size: 0.5rem;
+
+}
+.card .second p {
+    align-self: center;
+    margin-right: 0;
+    color: rgb(0, 162, 255);
+    font-size: 0.7rem;
+    font-family: "Proxima-Nova-SemiBold";
+}
+
+.card .second p i {
+    font-size: 0.6rem;
+}
+
+
+
+/****************** Chat *************************/
+aside {
+    grid-area: aside;
+    padding-top: 1.5rem;
+    background-color: white;
+}
+aside h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    color: lightgray;
+}
+/******** Content people statut *****************/
+.people_Statut {
+    padding: 0 2rem;
+}
+.people_Statut p {
+    font-family: "Proxima-Nova-Light";
+    font-size: 0.7rem;
+}
+.people_Statut form {
+    padding-top: 1.2rem;
+}
+.people_Statut input {
+    width: 80%;
+}
+/***** Card People ******************************/
+.people {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.people img {
+    width: 1.5rem;
+    margin-right: 1rem;
+}
+.people div {
+    display: flex;
+    align-items: center;
+}
